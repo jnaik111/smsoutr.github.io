@@ -731,7 +731,7 @@
             
             // Add student data
             students.forEach(student => {
-                const row = [student.name, student.registration, calculateAttendancePercentage(student.registration).toFixed(1) + '%'];
+                const row = [student.name, student.registration, calculateAttendancePercentage(student.registration).toFixed(1)];
                 dates.forEach(date => {
                     row.push(attendanceData[date] && attendanceData[date][student.registration] === 'present' ? 'P' : 'A');
                 });
@@ -822,7 +822,7 @@
                             student.registration,
                             presentCount,
                             filteredDates.length,
-                            percentage.toFixed(1) + '%',
+                            percentage.toFixed(1),
                             status
                         ]);
                     });
@@ -839,7 +839,7 @@
                             row.push(status);
                         });
                         row.push(presentCount);
-                        row.push(((presentCount / filteredDates.length) * 100).toFixed(1) + '%');
+                        row.push(((presentCount / filteredDates.length) * 100).toFixed(1));
                         wsData.push(row);
                     });
                     break;
@@ -859,7 +859,7 @@
                             wsData.push([
                                 student.name,
                                 student.registration,
-                                percentage.toFixed(1) + '%',
+                                percentage.toFixed(1),
                                 filteredDates.length - presentCount,
                                 status
                             ]);
